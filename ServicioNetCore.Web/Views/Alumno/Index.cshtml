@@ -1,0 +1,37 @@
+﻿@model List<ServicioNetCore.Web.Models.AlumnoEntity>
+
+    <div class="row">
+    <h3 class="col-6">
+        Lista de Alumnos
+    </h3>
+    <div class="col-6 text-right">
+        <a class="btn btn-primary" href="@Url.Action("Create", "Alumno")">Agregar Alumno</a>
+    </div>
+    </div>
+
+<table class="table">
+    <tr>
+        <td>Numero Cuenta</td>
+        <td>Nombre</td>
+        <td>Apellido Patrerno</td>
+        <td>ApellidoMaterno</td>
+        <td>Grado</td>
+        <td>NIp</td>
+        <td></td>
+    </tr>
+    @foreach (var alumno in Model)
+    {
+        <tr>
+            <td>@alumno.NumeroCuenta</td>
+            <td>@alumno.Nombre</td>
+            <td>@alumno.ApellidoPaterno</td>
+            <td>@alumno.ApellidoMaterno</td>
+            <td>@alumno.Grado</td>
+            <td>@alumno.Nip</td>
+            <td>
+                <a class="btn btn-warning" href="@Url.Action("Edit", "Alumno", new { id = alumno.NumeroCuenta })">Editar</a>
+                <a class="btn btn-danger" href="@Url.Action("Delete", "Alumno", new { id = alumno.NumeroCuenta })">Eliminar</a>
+            </td>
+        </tr>
+    }
+</table>
